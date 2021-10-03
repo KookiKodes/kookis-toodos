@@ -40,7 +40,7 @@
 		"@types/node": "^16.9.6",
 		"@types/polka": "^0.5.3",
 		"@types/tailwindcss": "^2.2.1",
-		"@typescript-eslint/eslint-plugin": "^4.31.2",
+		"@typescript-eslint/eslint-plugin": "^4.32.0",
 		"@typescript-eslint/parser": "^4.31.2",
 		"autoprefixer": "^10.3.5",
 		"cross-env": "^7.0.3",
