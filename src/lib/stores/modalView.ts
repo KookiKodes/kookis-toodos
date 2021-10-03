@@ -1,19 +1,20 @@
-import { Writable, writable } from "svelte/store";
+import { writable } from 'svelte/store';
 
-interface Disclosure {
+interface ModalState {
   on: () => void;
   off: () => void;
   toggle: () => void;
 }
 
-type UseModalState = [Writable<boolean>, Disclosure];
+function createModalView() {
+  const { subscribe, set, update } = writable(false);
 
-const modalState = writable(false);
+  return {
+    subscribe,
+    on: () => set(true),
+    off: () => set(false),
+    toggle: () => update((current) => !current),
+  };
+}
 
-const off = () => modalState.set(false);
-const on = () => modalState.set(true);
-const toggle = () => modalState.update((state) => !state);
-
-const useModalState: UseModalState = [modalState, { off, on, toggle }];
-
-export default useModalState;
+export const modalView = createModalView();

@@ -1,11 +1,12 @@
-import { writable, Writable } from "svelte/store";
+import { writable } from 'svelte/store';
 
-type FocusState = [Writable<HTMLElement>, (elem: HTMLElement) => void];
+function createFocusElem() {
+  const { subscribe, set } = writable(null);
 
-const focusedElem = writable(null);
+  return {
+    subscribe,
+    withFocusSelector: (elem: HTMLElement) => set(elem),
+  };
+}
 
-const setFocusedElem = (elem: HTMLElement) => focusedElem.set(elem);
-
-const focusState: FocusState = [focusedElem, setFocusedElem];
-
-export default focusState;
+export const focusElem = createFocusElem();

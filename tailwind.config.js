@@ -13,11 +13,12 @@ module.exports = {
       ],
     },
   },
+  mode: 'jit',
   darkMode: false, // or 'media' or 'class'
   theme: {
     colors: {
       gray: colors.blueGray,
-      purple: colors.purple,
+      purple: colors.violet,
       pink: colors.pink,
       green: colors.green,
       yellow: colors.yellow,
@@ -27,28 +28,39 @@ module.exports = {
     extend: {
       height: {
         'min-content': 'min-content',
+        50: '50px',
+      },
+      width: {
+        50: '50px',
+        'min-content': 'min-content',
       },
       minWidth: {
         screen: '100vw',
       },
       minHeight: {
         screen: '100vh',
+        50: '50px',
       },
       maxWidth: {
         1440: '1440px',
         1080: '1080px',
+        400: '400px',
+      },
+      maxHeight: {
+        50: '50px',
+      },
+      pointerEvents: {
+        all: 'all',
+      },
+    },
+    variants: {
+      extend: {
+        ring: ['active'],
+        scale: ['active', 'focus'],
+        backgroundImage: ['focus', 'hover'],
+        outline: ['group-focus'],
       },
     },
   },
-  variants: {
-    extend: {
-      ring: ['active'],
-      scale: ['active', 'focus'],
-    },
-  },
   plugins: [],
-  future: {
-    purgeLayersByDefault: true,
-    removeDeprecatedGapUtilities: true,
-  },
 };
